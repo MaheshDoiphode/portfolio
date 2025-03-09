@@ -52,38 +52,45 @@ export function ContactPage() {
     setIsSubmitting(true);
 
     try {
-    // Simulate API call
-    const templateParam = {
-      name: values.name,
-      message: values.message,
-      email: values.email,
-      subject: values.subject
-    };
+      // Map form values to EmailJS template parameters
+      const templateParam = {
+        to_name: "Mahesh", // Your name or who should receive the email
+        from_name: values.name, // The sender's name from the form
+        from_email: values.email, // The sender's email from the form
+        subject: values.subject, // The subject from the form
+        message: values.message, // The message from the form
+      };
 
-    const serviceId = import.meta.env.VITE_SERVICE_ID;
-    const templateId = import.meta.env.VITE_TEMPLATE_ID;
-    const publicKey = import.meta.env.VITE_PUBLIC_KEY;
+      const serviceId = import.meta.env.VITE_SERVICE_ID;
+      const templateId = import.meta.env.VITE_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_PUBLIC_KEY;
 
+      await emailjs.send(
+        serviceId,
+        templateId,
+        templateParam,
+        {
+          publicKey: publicKey,
+        }
+      );
 
-    await emailjs.send(
-      serviceId,
-      templateId,
-      templateParam,
-      {
-        publicKey: publicKey,
-      }
-    );
-
-    console.log(values);
-    setIsSubmitting(false);
-    form.reset();
-      
-    toast({
-      title: "Message sent!",
-      description: "Thank you for your message. I'll get back to you soon.",
-    });
+      console.log(values);
+      setIsSubmitting(false);
+      form.reset();
+        
+      toast({
+        title: "Message sent!",
+        description: "Thank you for your message. I'll get back to you soon.",
+      });
     } catch (error) {
       console.error('Error sending email:', error);
+      setIsSubmitting(false);
+      
+      toast({
+        title: "Error",
+        description: "Failed to send your message. Please try again later.",
+        variant: "destructive",
+      });
     }
   }
 
