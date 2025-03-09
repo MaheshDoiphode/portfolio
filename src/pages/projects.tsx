@@ -40,7 +40,7 @@ export function ProjectsPage() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1 * index, duration: 0.5 }}
                   >
-                    <Card className="overflow-hidden h-full glow">
+                    <Card className="overflow-hidden h-full">
                       <div className="relative h-48 w-full">
                         <img
                           src={project.image}
@@ -51,34 +51,38 @@ export function ProjectsPage() {
                           {project.icon}
                         </div>
                       </div>
-                      <CardContent className="p-6">
-                        <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                        <p className="text-muted-foreground mb-4 line-clamp-3">{project.description}</p>
-                        <div className="flex flex-wrap gap-2 mb-4">
-                          {project.tags.map((tag, i) => (
-                            <Badge key={i}>{tag}</Badge>
-                          ))}
+                      <CardContent className="p-6 flex flex-col h-[calc(100%-12rem)]">
+                        <div className="flex-1">
+                          <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+                          <p className="text-muted-foreground">{project.description}</p>
                         </div>
-                        <div className="flex justify-between gap-4">
-                          <Button asChild className="w-[50%]">
-                            <a href={project.link}>
-                              View Project
-                              <ArrowRight className="ml-2 h-4 w-4" />
-                            </a>
-                          </Button>
-                          <Button asChild className="w-[50%]">
-                            {project.live ? (
-                              <a href={project.live as string} target="_blank" rel="noopener noreferrer">
-                                Live
+                        <div className="space-y-4 mt-4">
+                          <div className="flex flex-wrap gap-2">
+                            {project.tags.map((tag, i) => (
+                              <Badge key={i}>{tag}</Badge>
+                            ))}
+                          </div>
+                          <div className="flex justify-between gap-4">
+                            <Button asChild className="w-[50%]">
+                              <a href={project.github} target="_blank" rel="noopener noreferrer">
+                                View Source
                                 <ArrowRight className="ml-2 h-4 w-4" />
                               </a>
-                            ) : (
-                              <span>
-                                Soon
-                                <ArrowRight className="ml-2 h-4 w-4" />
-                              </span>
-                            )}
-                          </Button>
+                            </Button>
+                            <Button asChild className="w-[50%]">
+                              {project.live ? (
+                                <a href={project.live as string} target="_blank" rel="noopener noreferrer">
+                                  Live
+                                  <ArrowRight className="ml-2 h-4 w-4" />
+                                </a>
+                              ) : (
+                                <span>
+                                  Soon
+                                  <ArrowRight className="ml-2 h-4 w-4" />
+                                </span>
+                              )}
+                            </Button>
+                          </div>
                         </div>
                       </CardContent>
                     </Card>
