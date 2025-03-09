@@ -1,53 +1,91 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Code,
-  Database,
-  Server,
   Layers,
   Terminal,
-  GitBranch,
-  Cpu,
-  Cloud
 } from "lucide-react";
+import { ReactNode } from "react";
 
-const skills = {
+// Helper function to conditionally render icon or image
+const renderIconOrImage = (name: string, icon: string | ReactNode): ReactNode => {
+  // If icon is a string, it's a path to an image
+  if (typeof icon === 'string') {
+    return (
+      <img 
+        src={icon} 
+        alt={name} 
+        className="h-12 w-12 object-contain transition-transform duration-500 group-hover:scale-110" 
+      />
+    );
+  } 
+  // Otherwise it's a Lucide icon component
+  return icon;
+};
+
+// Define a type for our skill items
+interface Skill {
+  name: string;
+  icon: string | ReactNode;
+}
+
+// Import all images directly
+import javaIcon from '/src/public/java.png';
+import springbootIcon from '/src/public/springboot.png';
+import postgresIcon from '/src/public/postgres.png';
+import awsIcon from '/src/public/AWS.png';
+import dockerIcon from '/src/public/docker.png';
+import cicdIcon from '/src/public/cicd.png';
+import redisIcon from '/src/public/redis.png';
+import kubernetesIcon from '/src/public/kubernetes.png';
+import mongodbIcon from '/src/public/mongodb.png';
+import githubIcon from '/src/public/github.png';
+import angularIcon from '/src/public/angular.png';
+import tailwindIcon from '/src/public/tailwind.png';
+import jenkinsIcon from '/src/public/jenkins.png';
+import androidIcon from '/src/public/android.png';
+import postmanIcon from '/src/public/postman.png';
+import bitbucketIcon from '/src/public/bitbucket.png';
+import bambooIcon from '/src/public/bamboo.png';
+import helmIcon from '/src/public/helm.png';
+
+const skills: Record<string, Skill[]> = {
   proficient: [
-    { name: "Java", level: 95, icon: <Code className="h-6 w-6" />, color: "bg-blue-700" },
-    { name: "Spring Boot", level: 90, icon: <Code className="h-6 w-6" />, color: "bg-green-600" },
-    { name: "PostgreSQL", level: 88, icon: <Database className="h-6 w-6" />, color: "bg-blue-600" },
-    { name: "AWS", level: 85, icon: <Cloud className="h-6 w-6" />, color: "bg-orange-500" },
-    { name: "Docker", level: 90, icon: <Layers className="h-6 w-6" />, color: "bg-blue-600" },
-    { name: "Microservices", level: 85, icon: <Layers className="h-6 w-6" />, color: "bg-purple-600" },
-    { name: "CI/CD", level: 80, icon: <Terminal className="h-6 w-6" />, color: "bg-green-500" },
-    { name: "Redis", level: 85, icon: <Database className="h-6 w-6" />, color: "bg-red-600" },
+    { name: "Java", icon: javaIcon },
+    { name: "Spring Boot", icon: springbootIcon },
+    { name: "PostgreSQL", icon: postgresIcon },
+    { name: "AWS", icon: awsIcon },
+    { name: "Docker", icon: dockerIcon },
+    { name: "Microservices", icon: <Layers className="h-12 w-12" /> },
+    { name: "CI/CD", icon: cicdIcon },
+    { name: "Redis", icon: redisIcon },
   ],
   familiar: [
-    { name: "Kubernetes", level: 75, icon: <Layers className="h-6 w-6" />, color: "bg-blue-500" },
-    { name: "MongoDB", level: 78, icon: <Database className="h-6 w-6" />, color: "bg-green-500" },
-    { name: "Git", level: 85, icon: <GitBranch className="h-6 w-6" />, color: "bg-red-500" },
-    { name: "Angular", level: 70, icon: <Code className="h-6 w-6" />, color: "bg-red-600" },
-    { name: "Tailwind CSS", level: 75, icon: <Code className="h-6 w-6" />, color: "bg-cyan-500" },
-    { name: "Jenkins", level: 70, icon: <Server className="h-6 w-6" />, color: "bg-gray-600" },
-    { name: "Android (Kotlin)", level: 65, icon: <Cpu className="h-6 w-6" />, color: "bg-green-600" },
+    { name: "Kubernetes", icon: kubernetesIcon },
+    { name: "MongoDB", icon: mongodbIcon },
+    { name: "Git", icon: githubIcon },
+    { name: "Angular", icon: angularIcon },
+    { name: "Tailwind CSS", icon: tailwindIcon },
+    { name: "Jenkins", icon: jenkinsIcon },
+    { name: "Android", icon: androidIcon },
   ],
   projects: [
-    { name: "Reactive Programming", level: 85, icon: <Code className="h-6 w-6" />, color: "bg-purple-500" },
-    { name: "BFF Architecture", level: 80, icon: <Layers className="h-6 w-6" />, color: "bg-indigo-500" },
-    { name: "RESTful API Design", level: 90, icon: <Server className="h-6 w-6" />, color: "bg-teal-600" },
-    { name: "Containerization", level: 85, icon: <Layers className="h-6 w-6" />, color: "bg-blue-600" },
-    { name: "Batch Processing", level: 80, icon: <Server className="h-6 w-6" />, color: "bg-orange-600" },
-    { name: "UI/UX Design", level: 75, icon: <Layers className="h-6 w-6" />, color: "bg-pink-500" },
+    { name: "Reactive Programming", icon: <Code className="h-12 w-12" /> },
+    { name: "BFF Architecture", icon: <Layers className="h-12 w-12" /> },
+    { name: "RESTful API Design", icon: postmanIcon },
+    { name: "Containerization", icon: dockerIcon },
+    { name: "Cloud Infrastructure", icon: awsIcon },
+    { name: "CI/CD Pipelines", icon: cicdIcon },
   ],
   tools: [
-    { name: "VS Code", level: 90, icon: <Terminal className="h-6 w-6" />, color: "bg-blue-500" },
-    { name: "IntelliJ IDEA", level: 95, icon: <Terminal className="h-6 w-6" />, color: "bg-purple-600" },
-    { name: "Postman", level: 85, icon: <Server className="h-6 w-6" />, color: "bg-orange-500" },
-    { name: "GitHub", level: 85, icon: <GitBranch className="h-6 w-6" />, color: "bg-gray-700" },
-    { name: "AWS Console", level: 80, icon: <Cloud className="h-6 w-6" />, color: "bg-yellow-600" },
-    { name: "Docker Desktop", level: 85, icon: <Layers className="h-6 w-6" />, color: "bg-blue-600" },
+    { name: "VS Code", icon: <Terminal className="h-12 w-12" /> },
+    { name: "IntelliJ IDEA", icon: <Terminal className="h-12 w-12" /> },
+    { name: "Postman", icon: postmanIcon },
+    { name: "GitHub", icon: githubIcon },
+    { name: "BitBucket", icon: bitbucketIcon },
+    { name: "Bamboo", icon: bambooIcon },
+    { name: "Helm", icon: helmIcon },
   ]
 };
 
@@ -71,26 +109,23 @@ export function SkillsPage() {
 
         {Object.entries(skills).map(([category, skillList]) => (
           <TabsContent key={category} value={category} className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
               {skillList.map((skill, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 * index, duration: 0.5 }}
+                  className="group"
+                  whileHover={{ scale: 1.05 }}
                 >
-                  <Card className="h-full">
-                    <CardContent className="p-6">
-                      <div className="flex items-center gap-3 mb-4">
-                        <div className={`${skill.color} p-2 rounded-md text-white`}>
-                          {skill.icon}
-                        </div>
-                        <div>
-                          <h3 className="font-medium">{skill.name}</h3>
-                          <p className="text-sm text-muted-foreground">{skill.level}%</p>
-                        </div>
+                  <Card className="h-full transition-all duration-300 hover:shadow-lg border border-border/50 hover:border-primary/50 overflow-hidden">
+                    <CardContent className="p-6 flex flex-col items-center justify-center text-center h-full">
+                      <div className="mb-4 relative h-16 w-16 flex items-center justify-center">
+                        <div className="absolute inset-0 bg-primary/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        {renderIconOrImage(skill.name, skill.icon)}
                       </div>
-                      <Progress value={skill.level} className="h-2" />
+                      <h3 className="font-medium">{skill.name}</h3>
                     </CardContent>
                   </Card>
                 </motion.div>

@@ -1,18 +1,32 @@
-import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { projects } from "@/data/projects";
-import { 
-  ArrowRight, 
-  Code,
-  Mail, 
-  Github, 
-  Linkedin, 
+import { motion } from "framer-motion";
+import {
+  ArrowRight,
+  Github,
+  Layers,
+  Linkedin,
+  Mail,
   Twitter
-  
 } from "lucide-react";
+import { Link } from "react-router-dom";
+
+// Import skill icons
+import angularIcon from '/src/public/angular.png';
+import awsIcon from '/src/public/AWS.png';
+import dockerIcon from '/src/public/docker.png';
+import helmIcon from '/src/public/helm.png';
+import javaIcon from '/src/public/java.png';
+import kubernetesIcon from '/src/public/kubernetes.png';
+import springbootIcon from '/src/public/springboot.png';
+
+interface Skill {
+  name: string;
+  icon: string | JSX.Element;
+  isImage: boolean;
+}
 
 export function HomePage() {
   return (
@@ -159,16 +173,16 @@ export function HomePage() {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {[
-            { name: "Java", icon: <Code className="h-6 w-6" />, color: "bg-blue-700" },
-            { name: "Spring Boot", icon: <Code className="h-6 w-6" />, color: "bg-green-600" },
-            { name: "PostgreSQL", icon: <Code className="h-6 w-6" />, color: "bg-blue-500" },
-            { name: "AWS", icon: <Code className="h-6 w-6" />, color: "bg-orange-500" },
-            { name: "Docker", icon: <Code className="h-6 w-6" />, color: "bg-blue-600" },
-            { name: "Microservices", icon: <Code className="h-6 w-6" />, color: "bg-purple-600" },
-            { name: "Redis", icon: <Code className="h-6 w-6" />, color: "bg-red-600" },
-            { name: "MongoDB", icon: <Code className="h-6 w-6" />, color: "bg-green-500" },
-          ].map((skill, index) => (
+          {([
+            { name: "Java", icon: javaIcon, isImage: true },
+            { name: "Spring Boot", icon: springbootIcon, isImage: true },
+            { name: "AWS", icon: awsIcon, isImage: true },
+            { name: "Docker", icon: dockerIcon, isImage: true },
+            { name: "Kubernetes", icon: kubernetesIcon, isImage: true },
+            { name: "Helm", icon: helmIcon, isImage: true },
+            { name: "Microservices", icon: <Layers className="h-6 w-6" />, isImage: false },
+            { name: "Angular", icon: angularIcon, isImage: true },
+          ] as Skill[]).map((skill, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, scale: 0.9 }}
@@ -179,8 +193,16 @@ export function HomePage() {
             >
               <Card className="h-full">
                 <CardContent className="flex items-center gap-3 p-4">
-                  <div className={`${skill.color} p-2 rounded-md text-white`}>
-                    {skill.icon}
+                  <div className="p-2 rounded-md bg-primary/10">
+                    {skill.isImage ? (
+                      <img 
+                        src={skill.icon as string} 
+                        alt={skill.name}
+                        className="h-6 w-6 object-contain"
+                      />
+                    ) : (
+                      skill.icon
+                    )}
                   </div>
                   <span className="font-medium">{skill.name}</span>
                 </CardContent>
