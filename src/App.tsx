@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
+import { createBrowserRouter, createHashRouter, RouterProvider, Outlet } from 'react-router-dom';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Navbar } from '@/components/layout/navbar';
 import { Footer } from '@/components/layout/footer';
@@ -21,7 +21,9 @@ function Layout() {
   );
 }
 
-const router = createBrowserRouter([
+// Use HashRouter for GitHub Pages
+// This avoids the need for server-side configuration
+const router = createHashRouter([
   {
     element: <Layout />,
     children: [
@@ -43,9 +45,7 @@ const router = createBrowserRouter([
       },
     ],
   },
-], {
-  basename: '/portfolio'
-});
+]);
 
 function App() {
   return (

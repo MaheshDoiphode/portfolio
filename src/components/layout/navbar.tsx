@@ -16,6 +16,13 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
+  // Helper function to check if the nav item is active with hash router
+  const isActive = (path: string) => {
+    if (path === "/" && location.pathname === "/") return true;
+    if (path !== "/" && location.pathname.includes(path)) return true;
+    return false;
+  };
+
   return (
     <nav className="sticky top-0 sm:px-20 px-4 z-50 w-full border-b bg-background/80 backdrop-blur-md">
       <div className="container flex h-16 items-center justify-between">
@@ -32,10 +39,10 @@ export function Navbar() {
             {navItems.map((item) => (
               <Link key={item.path} to={item.path}>
                 <Button
-                  variant={location.pathname === item.path ? "default" : "ghost"}
+                  variant={isActive(item.path) ? "default" : "ghost"}
                   className={cn(
                     "transition-all duration-200",
-                    location.pathname === item.path && "rgb-border"
+                    isActive(item.path) && "rgb-border"
                   )}
                 >
                   {item.icon}
@@ -68,7 +75,7 @@ export function Navbar() {
             {navItems.map((item) => (
               <Link key={item.path} to={item.path} onClick={() => setIsOpen(false)}>
                 <Button
-                  variant={location.pathname === item.path ? "default" : "ghost"}
+                  variant={isActive(item.path) ? "default" : "ghost"}
                   className="w-full justify-start"
                 >
                   {item.icon}
