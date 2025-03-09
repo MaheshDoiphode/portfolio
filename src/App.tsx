@@ -7,10 +7,12 @@ import { HomePage } from '@/pages/home';
 import { ProjectsPage } from '@/pages/projects';
 import { SkillsPage } from '@/pages/skills';
 import { ContactPage } from '@/pages/contact';
+import { ScrollToTop } from '@/components/scroll-to-top';
 
 function Layout() {
   return (
     <div className="flex min-h-screen flex-col">
+      <ScrollToTop />
       <Navbar />
       <main className="flex-1">
         <Outlet />

@@ -163,6 +163,15 @@ export function HomePage() {
             </motion.div>
           ))}
         </div>
+
+        <div className="flex justify-center">
+          <Button asChild variant="outline">
+            <Link to="/projects">
+              View All Projects
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
+        </div>
       </section>
 
       {/* Skills Section */}
