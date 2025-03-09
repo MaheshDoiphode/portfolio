@@ -3,10 +3,9 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { 
-  ArrowRight, 
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { projects } from "@/data/projects";
+import ReactMarkdown from 'react-markdown';
 
 export function ProjectsPage() {
   return (
@@ -54,7 +53,17 @@ export function ProjectsPage() {
                       <CardContent className="p-6 flex flex-col h-[calc(100%-12rem)]">
                         <div className="flex-1">
                           <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                          <p className="text-muted-foreground">{project.description}</p>
+                          <div className="prose prose-sm dark:prose-invert">
+                            <ReactMarkdown 
+                              components={{
+                                ul: ({node, ...props}) => <ul className="list-disc pl-4 mb-4 text-muted-foreground space-y-1" {...props} />,
+                                li: ({node, ...props}) => <li className="text-muted-foreground" {...props} />,
+                                strong: ({node, ...props}) => <strong className="font-semibold text-foreground" {...props} />
+                              }}
+                            >
+                              {project.description}
+                            </ReactMarkdown>
+                          </div>
                         </div>
                         <div className="space-y-4 mt-4">
                           <div className="flex flex-wrap gap-2">
