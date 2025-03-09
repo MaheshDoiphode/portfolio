@@ -8,6 +8,9 @@ export default {
     './src/**/*.{ts,tsx}',
   ],
   theme: {
+    fontFamily: {
+      sans: ['Ubuntu', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+    },
     extend: {
       borderRadius: {
         lg: 'var(--radius)',
