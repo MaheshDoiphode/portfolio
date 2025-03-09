@@ -198,7 +198,7 @@ export function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-medium">Email</h3>
-                    <p className="text-muted-foreground">maheshdoiphode5@gmail.com</p>
+                    <p className="text-muted-foreground">helloworld.mahesh@gmail.com</p>
                   </div>
                 </div>
               </CardContent>
