@@ -5,6 +5,7 @@ import {
   Code,
   Layers,
   Terminal,
+  GitBranch
 } from "lucide-react";
 import { ReactNode } from "react";
 
@@ -64,7 +65,7 @@ const skills: Record<string, Skill[]> = {
   familiar: [
     { name: "Kubernetes", icon: kubernetesIcon },
     { name: "MongoDB", icon: mongodbIcon },
-    { name: "Git", icon: githubIcon },
+    { name: "Git", icon: <GitBranch className="h-12 w-12" /> },
     { name: "Angular", icon: angularIcon },
     { name: "Tailwind CSS", icon: tailwindIcon },
     { name: "Jenkins", icon: jenkinsIcon },
