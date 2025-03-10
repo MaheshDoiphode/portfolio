@@ -4,6 +4,8 @@ import timelogImage from '/src/public/projects/timelog.png'
 import cinemaImage from '/src/public/projects/cinema.png'
 import aiStuffImage from '/src/public/projects/aiStuff.png'
 import mobileBankingImage from '/src/public/projects/mobileBanking.png'
+import vmsImage from '/src/public/projects/vms.png'
+
 export interface Project {
   id: number;
   title: string;
@@ -46,7 +48,7 @@ export const projects: Project[] = [
 * Implemented **real-time notifications** for visitor arrivals
 * Integrated with **security systems** for automated access control
     `,
-    image: "https://www.proofhub.com/articles/wp-content/uploads/2020/02/Best-Task-Management-App-%E2%80%93-Keep-Your-Business-On-Track.jpg",
+    image: vmsImage,
     tags: ["Spring Boot", "Angular", "Docker", "PostgreSQL"],
     category: "web",
     icon: <Globe className="h-10 w-10 text-secondary" />,
