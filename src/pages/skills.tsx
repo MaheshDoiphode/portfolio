@@ -70,7 +70,7 @@ const skills: Record<string, Skill[]> = {
     { name: "Tailwind CSS", icon: tailwindIcon },
     { name: "Jenkins", icon: jenkinsIcon },
     { name: "Android", icon: androidIcon },
-    { name: "Android", icon: kafkaIcon },
+    { name: "Apache Kafka", icon: kafkaIcon },
 
   ],
   projects: [
