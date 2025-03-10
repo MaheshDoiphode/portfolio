@@ -23,12 +23,10 @@ export const projects: Project[] = [
   {
     id: 1,
     title: "Hi App (Singtel, Singapore)",
-    shortDescription: "Led migration to reactive programming and implemented BFF layer for microservices architecture.",
+    shortDescription: "Working on migration to reactive programming and implemented gateway layer for microservices architecture.",
     description: `
-* Led migration to **reactive programming** and implemented **BFF layer** for microservices architecture
-* Optimized batch processing with custom **DMF flow architecture**
-* Drove technical improvements across **Prepaid Division** projects
-* Achieved **30% improvement** in system performance
+* Working on migration to **reactive programming** and implemented **BFF layer** for microservices architecture
+* Optimized batch processing with custom **batch processing architecture**
     `,
     image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
     tags: ["Spring Boot", "AWS", "Reactive Programming", "Microservices"],
