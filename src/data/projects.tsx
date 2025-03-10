@@ -1,6 +1,8 @@
 import { Globe, Server, Terminal, Database } from "lucide-react"
 import utilitiesImage from '/src/public/utilities.jpg'
 import timelogImage from '/src/public/projects/timelog.png'
+import cinemaImage from '/src/public/projects/cinema.png'
+import aiStuffImage from '/src/public/projects/aiStuff.png'
 
 export interface Project {
   id: number;
@@ -93,5 +95,48 @@ export const projects: Project[] = [
     link: "https://github.com/MaheshDoiphode",
     github: "https://github.com/MaheshDoiphode/collection-of-utilities",
     live: null
-  }
+  },
+  {
+    id: 5,
+    title: "Cinema Management System",
+    shortDescription: "Full-stack cinema booking platform with role-based access and real-time seat management.",
+    description: `
+* Integrated **OMDB API** for rich movie metadata and automatic content updates
+* Implemented **role-based access** system (Admin, Cinema Owner, Customer) with JWT
+* Built features for dynamic projection scheduling and automated seat management
+* Developed comprehensive payment system with refund workflow
+* Created **real-time booking system** with conflict prevention
+    `,
+    image: cinemaImage,
+    tags: ["Angular", "Spring Boot", "PostgreSQL", "OMDB API", "JWT"],
+    category: "web",
+    icon: <Globe className="h-10 w-10 text-primary" />,
+    link: "https://github.com/MaheshDoiphode",
+    github: "https://github.com/MaheshDoiphode/cinema-angular",
+    live: null,
+    featured: true
+},
+{
+  id: 6,
+  title: "AI-Powered Code Analysis Tools",
+  shortDescription: "Built AI-powered utilities for automated code review and optimization using Google's Gemini API.",
+  description: `
+* Developed intelligent code analysis tools using **Google's Gemini 1.5 Pro API**
+* Features include:
+* Automated code review and optimization suggestions
+* Real-time error detection and fix proposals
+* Smart code documentation generation
+* Unit test case recommendations
+* Built with **Flask-based web interface** for result visualization
+* Integrated with **VS Code** for seamless developer experience
+* Reduced code review time by **60%** and improved code quality
+  `,
+  image: aiStuffImage,
+  tags: ["Python", "Google Gemini API", "Flask", "VS Code Extension"],
+  category: "ai",
+  icon: <Database className="h-10 w-10 text-green-600" />,
+  link: "https://github.com/MaheshDoiphode",
+  github: "https://github.com/MaheshDoiphode/ai-stuff",
+  live: null
+},
 ]

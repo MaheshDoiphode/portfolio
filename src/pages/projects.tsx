@@ -72,25 +72,29 @@ export function ProjectsPage() {
                             ))}
                           </div>
                           <div className="flex justify-between gap-4">
-                            <Button asChild className="w-[50%]">
-                              <a href={project.github} target="_blank" rel="noopener noreferrer">
-                                View Source
-                                <ArrowRight className="ml-2 h-4 w-4" />
-                              </a>
-                            </Button>
-                            <Button asChild className="w-[50%]">
-                              {project.live ? (
-                                <a href={project.live as string} target="_blank" rel="noopener noreferrer">
-                                  Live
+                            {project.live ? (
+                              <>
+                                <Button asChild className="w-[50%]">
+                                  <a href={project.github} target="_blank" rel="noopener noreferrer">
+                                    View Source
+                                    <ArrowRight className="ml-2 h-4 w-4" />
+                                  </a>
+                                </Button>
+                                <Button asChild className="w-[50%]">
+                                  <a href={project.live} target="_blank" rel="noopener noreferrer">
+                                    Live
+                                    <ArrowRight className="ml-2 h-4 w-4" />
+                                  </a>
+                                </Button>
+                              </>
+                            ) : (
+                              <Button asChild className="w-full">
+                                <a href={project.github} target="_blank" rel="noopener noreferrer">
+                                  View Source
                                   <ArrowRight className="ml-2 h-4 w-4" />
                                 </a>
-                              ) : (
-                                <span>
-                                  Soon
-                                  <ArrowRight className="ml-2 h-4 w-4" />
-                                </span>
-                              )}
-                            </Button>
+                              </Button>
+                            )}
                           </div>
                         </div>
                       </CardContent>
