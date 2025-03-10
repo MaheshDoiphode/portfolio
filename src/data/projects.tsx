@@ -1,4 +1,6 @@
 import { Globe, Server, Terminal, Database } from "lucide-react"
+import utilitiesImage from '/src/public/utilities.jpg'
+import timelogImage from '/src/public/projects/timelog.png'
 
 export interface Project {
   id: number;
@@ -62,7 +64,7 @@ export const projects: Project[] = [
 * Created **intuitive dashboard** for quick insights
 * Added **export functionality** for timesheet generation
     `,
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8mq2cnidNUr0thrOpFo-bh1p_fCrLmxzXVQ&s",
+    image: timelogImage,
     tags: ["Angular", "Figma", "Tailwind CSS"],
     category: "web",
     icon: <Terminal className="h-10 w-10 text-accent" />,
@@ -84,7 +86,7 @@ export const projects: Project[] = [
 * Implemented **cross-platform compatibility**
 * Added **configuration management** for easy customization
     `,
-    image: "https://miro.medium.com/v2/resize:fit:1358/1*K8n1kSYoFTBsXnsbu9GxMw.jpeg",
+    image: utilitiesImage,
     tags: ["Python", "Spring Boot", "MongoDB", "Docker"],
     category: "tools",
     icon: <Database className="h-10 w-10 text-green-600" />,

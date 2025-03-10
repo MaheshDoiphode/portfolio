@@ -39,8 +39,8 @@ export function ProjectsPage() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1 * index, duration: 0.5 }}
                   >
-                    <Card className="overflow-hidden h-full">
-                      <div className="relative h-48 w-full">
+                    <Card className="overflow-hidden h-full flex flex-col">
+                      <div className="relative h-64 w-full">
                         <img
                           src={project.image}
                           alt={project.title}
@@ -50,7 +50,7 @@ export function ProjectsPage() {
                           {project.icon}
                         </div>
                       </div>
-                      <CardContent className="p-6 flex flex-col h-[calc(100%-12rem)]">
+                      <CardContent className="p-6 flex flex-col flex-1">
                         <div className="flex-1">
                           <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
                           <div className="prose prose-sm dark:prose-invert">
@@ -65,7 +65,7 @@ export function ProjectsPage() {
                             </ReactMarkdown>
                           </div>
                         </div>
-                        <div className="space-y-4 mt-4">
+                        <div className="space-y-4 pt-6">
                           <div className="flex flex-wrap gap-2">
                             {project.tags.map((tag, i) => (
                               <Badge key={i}>{tag}</Badge>
