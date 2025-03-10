@@ -1,9 +1,9 @@
-import { Globe, Server, Terminal, Database } from "lucide-react"
+import { Globe, Server, Terminal, Database, CreditCard } from "lucide-react"
 import utilitiesImage from '/src/public/utilities.jpg'
 import timelogImage from '/src/public/projects/timelog.png'
 import cinemaImage from '/src/public/projects/cinema.png'
 import aiStuffImage from '/src/public/projects/aiStuff.png'
-
+import mobileBankingImage from '/src/public/projects/mobileBanking.png'
 export interface Project {
   id: number;
   title: string;
@@ -91,7 +91,7 @@ export const projects: Project[] = [
     category: "tools",
     icon: <Database className="h-10 w-10 text-green-600" />,
     link: "https://github.com/MaheshDoiphode",
-    github: "https://github.com/MaheshDoiphode/collection-of-utilities",
+    github: "https://github.com/MaheshDoiphode/python-stuff",
     live: null
   },
   {
@@ -137,4 +137,30 @@ export const projects: Project[] = [
   github: "https://github.com/MaheshDoiphode/ai-stuff",
   live: null
 },
+{
+  id: 7,
+  title: "Mobile Banking Application",
+  shortDescription: "Full-stack secure banking system with real-time transactions, analytics and chatbot support",
+  description: `
+* Built with **Angular 16** frontend and **Spring Boot** backend
+* Core Features:  
+* JWT + OTP based secure authentication & transactions
+* Fund transfers with favorite transactions support
+* Visual expense analytics with MongoDB aggregation
+* Real-time account tracking & statement generation
+* AI-powered chatbot for customer support
+* Tech Highlights:
+* Dual DB architecture (PostgreSQL + MongoDB)
+* Microservices pattern with Spring Cloud
+* Material UI with responsive design & charts
+* End-to-end encryption & role-based security
+  `,
+  image: mobileBankingImage,
+  tags: ["Angular", "Spring Boot", "PostgreSQL", "MongoDB", "JWT", "Material UI"],
+  category: "fullstack",
+  icon: <CreditCard className="h-10 w-10 text-blue-600" />,
+  link: "https://github.com/MaheshDoiphode/mobile-banking",
+  github: "https://github.com/MaheshDoiphode/mobile-banking", 
+  live: null
+}
 ]
