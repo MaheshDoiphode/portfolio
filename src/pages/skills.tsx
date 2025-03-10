@@ -50,6 +50,7 @@ import postmanIcon from '/src/public/postman.png';
 import bitbucketIcon from '/src/public/bitbucket.png';
 import bambooIcon from '/src/public/bamboo.png';
 import helmIcon from '/src/public/helm.png';
+import kafkaIcon from '/src/public/kafka.png';
 
 const skills: Record<string, Skill[]> = {
   proficient: [
@@ -58,7 +59,6 @@ const skills: Record<string, Skill[]> = {
     { name: "PostgreSQL", icon: postgresIcon },
     { name: "AWS", icon: awsIcon },
     { name: "Docker", icon: dockerIcon },
-    { name: "Microservices", icon: <Layers className="h-12 w-12" /> },
     { name: "CI/CD", icon: cicdIcon },
     { name: "Redis", icon: redisIcon },
   ],
@@ -70,10 +70,13 @@ const skills: Record<string, Skill[]> = {
     { name: "Tailwind CSS", icon: tailwindIcon },
     { name: "Jenkins", icon: jenkinsIcon },
     { name: "Android", icon: androidIcon },
+    { name: "Android", icon: kafkaIcon },
+
   ],
   projects: [
     { name: "Reactive Programming", icon: <Code className="h-12 w-12" /> },
-    { name: "BFF Architecture", icon: <Layers className="h-12 w-12" /> },
+    { name: "Microservices", icon: <Layers className="h-12 w-12" /> },
+    { name: "Architecture Design", icon: <Layers className="h-12 w-12" /> },
     { name: "RESTful API Design", icon: postmanIcon },
     { name: "Containerization", icon: dockerIcon },
     { name: "Cloud Infrastructure", icon: awsIcon },
