@@ -53,43 +53,40 @@ import helmIcon from '/src/public/helm.png';
 import kafkaIcon from '/src/public/kafka.png';
 
 const skills: Record<string, Skill[]> = {
-  proficient: [
+  "core-tech": [
     { name: "Java", icon: javaIcon },
     { name: "Spring Boot", icon: springbootIcon },
+    { name: "Angular", icon: angularIcon },
     { name: "PostgreSQL", icon: postgresIcon },
+    { name: "MongoDB", icon: mongodbIcon },
+    { name: "Redis", icon: redisIcon },
+    { name: "Apache Kafka", icon: kafkaIcon },
+    { name: "Android", icon: androidIcon },
+    { name: "Tailwind CSS", icon: tailwindIcon },
+  ],
+  "cloud-devops": [
     { name: "AWS", icon: awsIcon },
     { name: "Docker", icon: dockerIcon },
-    { name: "CI/CD", icon: cicdIcon },
-    { name: "Redis", icon: redisIcon },
-  ],
-  familiar: [
     { name: "Kubernetes", icon: kubernetesIcon },
-    { name: "MongoDB", icon: mongodbIcon },
-    { name: "Git", icon: <GitBranch className="h-12 w-12" /> },
-    { name: "Angular", icon: angularIcon },
-    { name: "Tailwind CSS", icon: tailwindIcon },
     { name: "Jenkins", icon: jenkinsIcon },
-    { name: "Android", icon: androidIcon },
-    { name: "Apache Kafka", icon: kafkaIcon },
-
+    { name: "CI/CD", icon: cicdIcon },
+    { name: "Helm", icon: helmIcon },
+    { name: "Git", icon: <GitBranch className="h-12 w-12" /> },
   ],
-  projects: [
-    { name: "Reactive Programming", icon: <Code className="h-12 w-12" /> },
-    { name: "Microservices", icon: <Layers className="h-12 w-12" /> },
-    { name: "Architecture Design", icon: <Layers className="h-12 w-12" /> },
-    { name: "RESTful API Design", icon: postmanIcon },
-    { name: "Containerization", icon: dockerIcon },
-    { name: "Cloud Infrastructure", icon: awsIcon },
-    { name: "CI/CD Pipelines", icon: cicdIcon },
-  ],
-  tools: [
+  "tools": [
     { name: "VS Code", icon: <Terminal className="h-12 w-12" /> },
     { name: "IntelliJ IDEA", icon: <Terminal className="h-12 w-12" /> },
     { name: "Postman", icon: postmanIcon },
     { name: "GitHub", icon: githubIcon },
     { name: "BitBucket", icon: bitbucketIcon },
     { name: "Bamboo", icon: bambooIcon },
-    { name: "Helm", icon: helmIcon },
+  ],
+  "expertise": [
+    { name: "Microservices", icon: <Layers className="h-12 w-12" /> },
+    { name: "System Design", icon: <Layers className="h-12 w-12" /> },
+    { name: "RESTful APIs", icon: <Code className="h-12 w-12" /> },
+    { name: "Cloud Architecture", icon: awsIcon },
+    { name: "Reactive Programming", icon: <Code className="h-12 w-12" /> },
   ]
 };
 
@@ -103,12 +100,12 @@ export function SkillsPage() {
         </p>
       </div>
 
-      <Tabs defaultValue="proficient" className="space-y-8">
+      <Tabs defaultValue="core-tech" className="space-y-8">
         <TabsList className="grid grid-cols-2 md:grid-cols-4 w-full h-fit">
-          <TabsTrigger value="proficient">Proficient</TabsTrigger>
-          <TabsTrigger value="familiar">Familiar</TabsTrigger>
-          <TabsTrigger value="projects">Project Skills</TabsTrigger>
+          <TabsTrigger value="core-tech">Core Tech</TabsTrigger>
+          <TabsTrigger value="cloud-devops">Cloud & DevOps</TabsTrigger>
           <TabsTrigger value="tools">Tools</TabsTrigger>
+          <TabsTrigger value="expertise">Expertise</TabsTrigger>
         </TabsList>
 
         {Object.entries(skills).map(([category, skillList]) => (
