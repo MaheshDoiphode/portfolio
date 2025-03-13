@@ -5,6 +5,7 @@ import cinemaImage from '/src/public/projects/cinema.png'
 import aiStuffImage from '/src/public/projects/aiStuff.png'
 import mobileBankingImage from '/src/public/projects/mobileBanking.png'
 import vmsImage from '/src/public/projects/vms.png'
+import hiAppImage from '/src/public/projects/hiapp.png'
 
 export interface Project {
   id: number;
@@ -30,7 +31,7 @@ export const projects: Project[] = [
 * Working on migration to **reactive programming** and implemented **BFF layer** for microservices architecture
 * Optimized batch processing with custom **batch processing architecture**
     `,
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+    image: hiAppImage,
     tags: ["Spring Boot", "AWS", "Reactive Programming", "Microservices"],
     category: "web",
     icon: <Server className="h-10 w-10 text-primary" />,
