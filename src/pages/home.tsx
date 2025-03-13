@@ -1,6 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { useTheme } from "@/components/theme-provider";
 import { projects } from "@/data/projects";
 import { motion } from "framer-motion";
 import {
@@ -29,6 +30,8 @@ interface Skill {
 }
 
 export function HomePage() {
+  const { theme } = useTheme();
+  
   return (
     <div className="px-4 gap-6 flex flex-col sm:px-20 py-12 w-full">
       {/* Hero Section */}
@@ -199,7 +202,7 @@ export function HomePage() {
             className="overflow-hidden rounded-lg border shadow-md hover:shadow-lg transition-all duration-300"
           >
             <img 
-              src="https://github-readme-stats.vercel.app/api?username=MaheshDoiphode&show_icons=true&theme=dark" 
+              src={`https://github-readme-stats.vercel.app/api?username=MaheshDoiphode&show_icons=true&theme=${theme === "light" ? "default" : "dark"}`} 
               alt="GitHub Stats" 
               className="w-full max-w-md"
             />
