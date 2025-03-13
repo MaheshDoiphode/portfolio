@@ -182,6 +182,31 @@ export function HomePage() {
         </div>
       </section>
 
+      {/* GitHub Stats Section - NEW */}
+      <section className="space-y-6">
+        <div className="flex items-center justify-between">
+          <div>
+            <h2 className="text-3xl font-bold tracking-tight">GitHub Activity</h2>
+            <p className="text-muted-foreground">My Git contributions</p>
+          </div>
+        </div>
+        
+        <div className="w-full flex justify-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="overflow-hidden rounded-lg border shadow-md hover:shadow-lg transition-all duration-300"
+          >
+            <img 
+              src="https://github-readme-stats.vercel.app/api?username=MaheshDoiphode&show_icons=true&theme=dark" 
+              alt="GitHub Stats" 
+              className="w-full max-w-md"
+            />
+          </motion.div>
+        </div>
+      </section>
+
       {/* Skills Section */}
       <section className="space-y-8">
         <div>
