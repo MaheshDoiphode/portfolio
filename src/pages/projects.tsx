@@ -27,21 +27,28 @@ export function ProjectsPage() {
         </p>
       </div>
 
-      <Tabs defaultValue="all" className="space-y-8">
-        <TabsList className="grid grid-cols-2 md:grid-cols-6 w-full h-fit">
-          <TabsTrigger value="all">All</TabsTrigger>
-          <TabsTrigger value="web">Web</TabsTrigger>
-          <TabsTrigger value="mobile">Mobile</TabsTrigger>
-          <TabsTrigger value="ai">AI</TabsTrigger>
-          <TabsTrigger value="design">Design</TabsTrigger>
-          <TabsTrigger value="backend">Backend</TabsTrigger>
-        </TabsList>
+      <Tabs defaultValue="all" className="space-y-8 relative">
+        {/* Sticky category bar with shadow and backdrop blur - positioned below header */}
+        <div className="sticky top-16 z-10 bg-background/95 backdrop-blur supports-backdrop-blur:bg-background/60 pb-4 pt-2 -mx-4 px-4 sm:-mx-20 sm:px-20 border-b shadow-sm">
+          <TabsList className="grid grid-cols-2 md:grid-cols-5 w-full h-fit">
+            <TabsTrigger value="all">All</TabsTrigger>
+            <TabsTrigger value="web">Web</TabsTrigger>
+            <TabsTrigger value="backend">Backend</TabsTrigger>
+            <TabsTrigger value="tools">Tools</TabsTrigger>
+            <TabsTrigger value="ai">AI</TabsTrigger>
+          </TabsList>
+        </div>
 
-        {["all", "web", "mobile", "ai", "design", "backend"].map((category) => (
+        {["all", "fullstack", "backend", "tools", "ai"].map((category) => (
           <TabsContent key={category} value={category} className="space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {projects
-                .filter((project) => category === "all" || project.category === category)
+                .filter((project) =>
+                  category === "all" ||
+                  (Array.isArray(project.category)
+                    ? project.category.includes(category)
+                    : project.category === category)
+                )
                 .map((project, index) => (
                   <motion.div
                     key={project.id}
@@ -65,11 +72,11 @@ export function ProjectsPage() {
                         <div className="flex-1">
                           <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
                           <div className="prose prose-sm dark:prose-invert">
-                            <ReactMarkdown 
+                            <ReactMarkdown
                               components={{
-                                ul: ({node, ...props}) => <ul className="list-disc pl-4 mb-4 text-muted-foreground space-y-1" {...props} />,
-                                li: ({node, ...props}) => <li className="text-muted-foreground" {...props} />,
-                                strong: ({node, ...props}) => <strong className="font-semibold text-foreground" {...props} />
+                                ul: ({ node, ...props }) => <ul className="list-disc pl-4 mb-4 text-muted-foreground space-y-1" {...props} />,
+                                li: ({ node, ...props }) => <li className="text-muted-foreground" {...props} />,
+                                strong: ({ node, ...props }) => <strong className="font-semibold text-foreground" {...props} />
                               }}
                             >
                               {project.description}
@@ -116,8 +123,8 @@ export function ProjectsPage() {
           </TabsContent>
         ))}
       </Tabs>
-      
-      <ImageModal 
+
+      <ImageModal
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
         imageSrc={selectedImage.src}
