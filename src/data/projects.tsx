@@ -1,4 +1,4 @@
-import { Globe, Server, Terminal, Database, CreditCard } from "lucide-react"
+import { Globe, Server, Terminal, Database, CreditCard, Layers } from "lucide-react"
 import utilitiesImage from '/src/public/utilities.jpg'
 import timelogImage from '/src/public/projects/timelog.png'
 import cinemaImage from '/src/public/projects/cinema.png'
@@ -6,6 +6,7 @@ import aiStuffImage from '/src/public/projects/aiStuff.png'
 import mobileBankingImage from '/src/public/projects/mobileBanking.png'
 import vmsImage from '/src/public/projects/vms.png'
 import hiAppImage from '/src/public/projects/hiapp.png'
+import sessionSyncImage from '/src/public/projects/sessionSync.png'
 
 export interface Project {
   id: number;
@@ -164,6 +165,25 @@ export const projects: Project[] = [
   icon: <CreditCard className="h-10 w-10 text-blue-600" />,
   link: "https://github.com/MaheshDoiphode/mobile-banking",
   github: "https://github.com/MaheshDoiphode/mobile-banking", 
+  live: null
+},
+{
+  id: 8,
+  title: "SessionSync",
+  shortDescription: "Browser extension for managing sessions, tab organization, and profile switching with optimized storage.",
+  description: `
+* Built a Chrome extension with **session management** for saving and restoring browser states
+* Implemented **profile management** to store domain-specific cookies and auth tokens
+* Created **smart tab organization** with automatic grouping based on URL similarity
+* Optimized storage through **LZMA compression** and chunking for large data
+* Added seamless profile switching between different accounts for the same domain
+    `,
+  image: sessionSyncImage,
+  tags: ["JavaScript", "Chrome Extension API", "LZMA Compression", "Browser Storage"],
+  category: "web",
+  icon: <Layers className="h-10 w-10 text-blue-500" />,
+  link: "https://github.com/YourUsername/SessionSync",
+  github: "https://github.com/YourUsername/SessionSync",
   live: null
 }
 ]
