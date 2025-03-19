@@ -10,7 +10,8 @@ import {
   Layers,
   Linkedin,
   Mail,
-  Twitter
+  Twitter,
+  FileDown
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -95,6 +96,14 @@ export function HomePage() {
               <span className="sr-only">Twitter</span>
             </a>
           </Button>
+          {/* Add Resume Download Button */}
+          <Button variant="outline" className="ml-2 gap-2" asChild>
+            <a href="docs/Mahesh_Doiphode.pdf" download="Mahesh_Resume.pdf">
+              <FileDown className="h-4 w-4" />
+              Resume
+            </a>
+          </Button>
+          <a href="docs/Mahesh_Doiphode.pdf" download>Download my Resume</a>
         </motion.div>
       </section>
 
