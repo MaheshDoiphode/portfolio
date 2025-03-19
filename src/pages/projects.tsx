@@ -6,8 +6,18 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ArrowRight } from "lucide-react";
 import { projects } from "@/data/projects";
 import ReactMarkdown from 'react-markdown';
+import { useState } from 'react';
+import { ImageModal } from "@/components/ImageModal";
 
 export function ProjectsPage() {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState({ src: '', alt: '' });
+
+  const openImageModal = (src: string, alt: string) => {
+    setSelectedImage({ src, alt });
+    setModalOpen(true);
+  };
+
   return (
     <div className="flex flex-col sm:px-20 px-4 py-12 space-y-8">
       <div className="space-y-2">
@@ -44,7 +54,8 @@ export function ProjectsPage() {
                         <img
                           src={project.image}
                           alt={project.title}
-                          className="h-full w-full object-cover"
+                          className="h-full w-full object-cover cursor-pointer hover:opacity-90 transition-opacity"
+                          onClick={() => openImageModal(project.image, project.title)}
                         />
                         <div className="absolute top-4 right-4 bg-background/80 backdrop-blur-sm p-2 rounded-full">
                           {project.icon}
@@ -105,6 +116,13 @@ export function ProjectsPage() {
           </TabsContent>
         ))}
       </Tabs>
+      
+      <ImageModal 
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        imageSrc={selectedImage.src}
+        imageAlt={selectedImage.alt}
+      />
     </div>
   );
 }
