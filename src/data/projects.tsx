@@ -12,7 +12,7 @@ export interface Project {
   id: number;
   title: string;
   description: string;
-  shortDescription: string;  // Brief description for home page
+  shortDescription: string;
   tags: string[];
   image: string;
   github: string;
@@ -20,7 +20,7 @@ export interface Project {
   icon: JSX.Element;
   link: string;
   featured?: boolean;
-  category?: string;
+  category?: string | string[];
 }
 
 export const projects: Project[] = [
@@ -34,7 +34,7 @@ export const projects: Project[] = [
     `,
     image: hiAppImage,
     tags: ["Spring Boot", "AWS", "Reactive Programming", "Microservices"],
-    category: "web",
+    category: "backend",
     icon: <Server className="h-10 w-10 text-primary" />,
     link: "https://github.com/MaheshDoiphode",
     github: "https://github.com/MaheshDoiphode/hi-app",
@@ -52,7 +52,7 @@ export const projects: Project[] = [
     `,
     image: vmsImage,
     tags: ["Spring Boot", "Angular", "Docker", "PostgreSQL"],
-    category: "web",
+    category: ["fullstack"],
     icon: <Globe className="h-10 w-10 text-secondary" />,
     link: "https://github.com/MaheshDoiphode",
     github: "https://github.com/MaheshDoiphode/visitor-management-system",
@@ -70,7 +70,7 @@ export const projects: Project[] = [
     `,
     image: timelogImage,
     tags: ["Angular", "Figma", "Tailwind CSS"],
-    category: "web",
+    category: ["fullstack"],
     icon: <Terminal className="h-10 w-10 text-accent" />,
     link: "https://github.com/MaheshDoiphode",
     github: "https://github.com/MaheshDoiphode/time-log-tracker",
@@ -111,18 +111,18 @@ export const projects: Project[] = [
     `,
     image: cinemaImage,
     tags: ["Angular", "Spring Boot", "PostgreSQL", "OMDB API", "JWT"],
-    category: "web",
+    category: ["fullstack"],
     icon: <Globe className="h-10 w-10 text-primary" />,
     link: "https://github.com/MaheshDoiphode",
     github: "https://github.com/MaheshDoiphode/cinema-angular",
     live: null,
     featured: true
-},
-{
-  id: 6,
-  title: "AI-Powered Code Analysis Tools",
-  shortDescription: "Built AI-powered utilities for automated code review and optimization using Google's Gemini API.",
-  description: `
+  },
+  {
+    id: 6,
+    title: "AI-Powered Code Analysis Tools",
+    shortDescription: "Built AI-powered utilities for automated code review and optimization using Google's Gemini API.",
+    description: `
 * Developed intelligent code analysis tools using **Google's Gemini 1.5 Pro API**
 * Features include:
 * Automated code review and optimization suggestions
@@ -133,19 +133,19 @@ export const projects: Project[] = [
 * Integrated with **VS Code** for seamless developer experience
 * Reduced code review time by **60%** and improved code quality
   `,
-  image: aiStuffImage,
-  tags: ["Python", "Google Gemini API", "Flask", "VS Code Extension"],
-  category: "ai",
-  icon: <Database className="h-10 w-10 text-green-600" />,
-  link: "https://github.com/MaheshDoiphode",
-  github: "https://github.com/MaheshDoiphode/ai-stuff",
-  live: null
-},
-{
-  id: 7,
-  title: "Mobile Banking Application",
-  shortDescription: "Full-stack secure banking system with real-time transactions, analytics and chatbot support",
-  description: `
+    image: aiStuffImage,
+    tags: ["Python", "Google Gemini API", "Flask", "VS Code Extension"],
+    category: ["ai", "tools"],
+    icon: <Database className="h-10 w-10 text-green-600" />,
+    link: "https://github.com/MaheshDoiphode",
+    github: "https://github.com/MaheshDoiphode/ai-stuff",
+    live: null
+  },
+  {
+    id: 7,
+    title: "Mobile Banking Application",
+    shortDescription: "Full-stack secure banking system with real-time transactions, analytics and chatbot support",
+    description: `
 * Built with **Angular 16** frontend and **Spring Boot** backend
 * Core Features:  
 * JWT + OTP based secure authentication & transactions
@@ -159,31 +159,31 @@ export const projects: Project[] = [
 * Material UI with responsive design & charts
 * End-to-end encryption & role-based security
   `,
-  image: mobileBankingImage,
-  tags: ["Angular", "Spring Boot", "PostgreSQL", "MongoDB", "JWT", "Material UI"],
-  category: "fullstack",
-  icon: <CreditCard className="h-10 w-10 text-blue-600" />,
-  link: "https://github.com/MaheshDoiphode/mobile-banking",
-  github: "https://github.com/MaheshDoiphode/mobile-banking", 
-  live: null
-},
-{
-  id: 8,
-  title: "SessionSync",
-  shortDescription: "Browser extension for managing sessions, tab organization, and profile switching with optimized storage.",
-  description: `
+    image: mobileBankingImage,
+    tags: ["Angular", "Spring Boot", "PostgreSQL", "MongoDB", "JWT", "Material UI"],
+    category: ["fullstack"],
+    icon: <CreditCard className="h-10 w-10 text-blue-600" />,
+    link: "https://github.com/MaheshDoiphode/mobile-banking",
+    github: "https://github.com/MaheshDoiphode/mobile-banking",
+    live: null
+  },
+  {
+    id: 8,
+    title: "SessionSync",
+    shortDescription: "Browser extension for managing sessions, tab organization, and profile switching with optimized storage.",
+    description: `
 * Built a Chrome extension with **session management** for saving and restoring browser states
 * Implemented **profile management** to store domain-specific cookies and auth tokens
 * Created **smart tab organization** with automatic grouping based on URL similarity
 * Optimized storage through **LZMA compression** and chunking for large data
 * Added seamless profile switching between different accounts for the same domain
     `,
-  image: sessionSyncImage,
-  tags: ["JavaScript", "Chrome Extension API", "LZMA Compression", "Browser Storage"],
-  category: "web",
-  icon: <Layers className="h-10 w-10 text-blue-500" />,
-  link: "https://github.com/YourUsername/SessionSync",
-  github: "https://github.com/YourUsername/SessionSync",
-  live: null
-}
+    image: sessionSyncImage,
+    tags: ["JavaScript", "Chrome Extension API", "LZMA Compression", "Browser Storage"],
+    category: ["tools"],
+    icon: <Layers className="h-10 w-10 text-blue-500" />,
+    link: "https://github.com/MaheshDoiphode/SessionSync",
+    github: "https://github.com/MaheshDoiphode/SessionSync",
+    live: null
+  }
 ]
