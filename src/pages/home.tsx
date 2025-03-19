@@ -266,9 +266,15 @@ export function HomePage() {
 
                 {/* GitHub Streak Stats */}
                 <img
-                  src="https://github-readme-streak-stats.herokuapp.com/?user=MaheshDoiphode&theme=tokyonight&card_width=495"
+                  src="https://github-readme-streak-stats.herokuapp.com/?user=MaheshDoiphode&theme=tokyonight&card_width=495&hide_border=true"
                   alt="GitHub Streak"
                   className="w-full max-w-xl h-auto rounded-lg"
+                  onError={(e) => {
+                    // Fallback if the image fails to load
+                    const target = e.target as HTMLImageElement;
+                    target.onerror = null; // Prevent infinite loop
+                    target.src = "https://streak-stats.demolab.com/?user=MaheshDoiphode&theme=tokyonight&card_width=495&hide_border=true";
+                  }}
                 />
 
                 {/* Top Languages Card */}
