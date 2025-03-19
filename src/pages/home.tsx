@@ -1,7 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { useTheme } from "@/components/theme-provider";
 import { projects } from "@/data/projects";
 import { motion } from "framer-motion";
 import {
@@ -30,8 +29,7 @@ interface Skill {
 }
 
 export function HomePage() {
-  const { theme } = useTheme();
-  
+
   return (
     <div className="px-4 gap-6 flex flex-col sm:px-20 py-12 w-full">
       {/* Hero Section */}
@@ -185,31 +183,6 @@ export function HomePage() {
         </div>
       </section>
 
-      {/* GitHub Stats Section - NEW */}
-      <section className="space-y-6">
-        <div className="flex items-center justify-between">
-          <div>
-            <h2 className="text-3xl font-bold tracking-tight">GitHub Activity</h2>
-            <p className="text-muted-foreground">My Git contributions</p>
-          </div>
-        </div>
-        
-        <div className="w-full flex justify-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="overflow-hidden rounded-lg border shadow-md hover:shadow-lg transition-all duration-300"
-          >
-            <img 
-              src={`https://github-readme-stats.vercel.app/api?username=MaheshDoiphode&show_icons=true&theme=${theme === "light" ? "default" : "dark"}`} 
-              alt="GitHub Stats" 
-              className="w-full max-w-md"
-            />
-          </motion.div>
-        </div>
-      </section>
-
       {/* Skills Section */}
       <section className="space-y-8">
         <div>
@@ -240,8 +213,8 @@ export function HomePage() {
                 <CardContent className="flex items-center gap-3 p-4">
                   <div className="p-2 rounded-md bg-primary/10">
                     {skill.isImage ? (
-                      <img 
-                        src={skill.icon as string} 
+                      <img
+                        src={skill.icon as string}
                         alt={skill.name}
                         className="h-6 w-6 object-contain"
                       />
@@ -263,6 +236,72 @@ export function HomePage() {
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>
+        </div>
+      </section>
+
+      {/* GitHub Stats Section */}
+      <section className="space-y-6">
+        <div className="flex items-center justify-between">
+          <div>
+            <h2 className="text-3xl font-bold tracking-tight">GitHub Stats</h2>
+            <p className="text-muted-foreground">My open source contributions</p>
+          </div>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="w-full"
+        >
+          <Card>
+            <CardContent className="p-6">
+              <div className="flex flex-col items-center gap-4">
+                {/* Main GitHub Stats Card */}
+                <img
+                  src="https://github-readme-stats.vercel.app/api?username=MaheshDoiphode&show_icons=true&count_private=true&include_all_commits=true&theme=tokyonight&card_width=495"
+                  alt="GitHub Stats"
+                  className="w-full max-w-xl h-auto rounded-lg"
+                />
+
+                {/* GitHub Streak Stats */}
+                <img
+                  src="https://github-readme-streak-stats.herokuapp.com/?user=MaheshDoiphode&theme=tokyonight&card_width=495"
+                  alt="GitHub Streak"
+                  className="w-full max-w-xl h-auto rounded-lg"
+                />
+
+                {/* Top Languages Card */}
+                <img
+                  src="https://github-readme-stats.vercel.app/api/top-langs/?username=MaheshDoiphode&layout=compact&theme=tokyonight&card_width=495&langs_count=6"
+                  alt="Top Languages"
+                  className="w-full max-w-xl h-auto rounded-lg"
+                />
+
+                <div className="flex justify-center mt-4">
+                  <Button asChild variant="outline" className="gap-2">
+                    <a href="https://github.com/MaheshDoiphode" target="_blank" rel="noopener noreferrer">
+                      <Github className="h-4 w-4" />
+                      View GitHub Profile
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
+
+        {/* Keep the GitHub Badges */}
+        <div className="flex flex-wrap gap-4 justify-center">
+          <a href="https://github.com/MaheshDoiphode" target="_blank" rel="noopener noreferrer">
+            <img src="https://img.shields.io/github/followers/MaheshDoiphode?style=social" alt="GitHub Followers" />
+          </a>
+          <a href="https://github.com/MaheshDoiphode" target="_blank" rel="noopener noreferrer">
+            <img src="https://img.shields.io/github/stars/MaheshDoiphode?style=social" alt="GitHub Stars" />
+          </a>
+          <a href="https://github.com/MaheshDoiphode" target="_blank" rel="noopener noreferrer">
+            <img src="https://komarev.com/ghpvc/?username=MaheshDoiphode" alt="Profile Views" />
+          </a>
         </div>
       </section>
 

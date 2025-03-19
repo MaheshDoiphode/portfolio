@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
-import { Menu, X, Code, Briefcase, User, Mail } from "lucide-react";
+import { Menu, X, Code, Briefcase, User, Mail, FileDown } from "lucide-react";
 
 const navItems = [
   { path: "/", label: "Home", icon: <User className="h-4 w-4 mr-2" /> },
@@ -50,6 +50,18 @@ export function Navbar() {
                 </Button>
               </Link>
             ))}
+            <Button variant="outline" size="sm" className="hidden sm:flex items-center gap-1" asChild>
+              <a href="docs/Mahesh_Doiphode.pdf" download="Mahesh_Doiphode.pdf">
+                <FileDown className="h-4 w-4" />
+                <span>Resume</span>
+              </a>
+            </Button>
+            <Button variant="outline" size="icon" className="sm:hidden" asChild>
+              <a href="docs/Mahesh_Doiphode.pdf" download="Mahesh_Doiphode.pdf">
+                <FileDown className="h-4 w-4" />
+                <span className="sr-only">Resume</span>
+              </a>
+            </Button>
             <ThemeToggle />
           </div>
         </div>
@@ -83,6 +95,13 @@ export function Navbar() {
                 </Button>
               </Link>
             ))}
+            {/* Resume download button for mobile menu */}
+            <Button variant="outline" className="w-full justify-start gap-2" asChild>
+              <a href="docs/Mahesh_Doiphode.pdf" download="Mahesh_Doiphode.pdf">
+                <FileDown className="h-4 w-4" />
+                Resume
+              </a>
+            </Button>
           </div>
         </div>
       )}
