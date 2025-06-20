@@ -8,8 +8,7 @@ import {
   Github,
   Layers,
   Linkedin,
-  Mail,
-  Twitter
+  Mail
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -85,12 +84,6 @@ export function HomePage() {
             <a href="https://www.linkedin.com/in/maheshdoiphode/" target="_blank" rel="noopener noreferrer">
               <Linkedin className="h-5 w-5" />
               <span className="sr-only">LinkedIn</span>
-            </a>
-          </Button>
-          <Button variant="ghost" size="icon" asChild>
-            <a href="https://www.threads.net/@mhmdd_frhnn" target="_blank" rel="noopener noreferrer">
-              <Twitter className="h-5 w-5" />
-              <span className="sr-only">Twitter</span>
             </a>
           </Button>
         </motion.div>
