@@ -57,7 +57,7 @@ export function Navbar() {
               </a>
             </Button>
             <Button variant="outline" size="icon" className="sm:hidden" asChild>
-              <a href="docs/Mahesh_Doiphode.pdf" download="Mahesh_Doiphode.pdf">
+              <a href="https://raw.githubusercontent.com/MaheshDoiphode/MaheshDoiphode/master/mahesh_doiphode.pdf" download="Mahesh_Doiphode.pdf">
                 <FileDown className="h-4 w-4" />
                 <span className="sr-only">Resume</span>
               </a>
