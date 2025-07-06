@@ -16,7 +16,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Github, Linkedin } from "lucide-react";
 import emailjs from '@emailjs/browser';
 
 const formSchema = z.object({
@@ -122,7 +122,9 @@ export function ContactPage() {
               </div>
               <div>
                 <h3 className="font-medium">Email</h3>
-                <p className="text-muted-foreground">helloworld.mahesh@gmail.com</p>
+                <a href="mailto:helloworld.mahesh@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
+                  helloworld.mahesh@gmail.com
+                </a>
               </div>
             </div>
             
@@ -132,7 +134,9 @@ export function ContactPage() {
               </div>
               <div>
                 <h3 className="font-medium">Phone</h3>
-                <p className="text-muted-foreground">+91 91129 30903</p>
+                <a href="tel:+919112930903" className="text-muted-foreground hover:text-primary transition-colors">
+                  +91 91129 30903
+                </a>
               </div>
             </div>
             
@@ -159,11 +163,6 @@ export function ContactPage() {
               <Button variant="outline" size="icon" className="rounded-full hover:bg-primary/10 transition-colors" asChild>
                 <a href="https://www.linkedin.com/in/maheshdoiphode/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                   <Linkedin className="h-5 w-5" />
-                </a>
-              </Button>
-              <Button variant="outline" size="icon" className="rounded-full hover:bg-primary/10 transition-colors" asChild>
-                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                  <Twitter className="h-5 w-5" />
                 </a>
               </Button>
             </div>
