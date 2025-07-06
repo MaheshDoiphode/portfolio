@@ -11,6 +11,8 @@ import {
   Mail
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { ImageModal } from "@/components/ImageModal";
 
 // Import skill icons
 import angularIcon from '/src/public/angular.png';
@@ -28,6 +30,15 @@ interface Skill {
 }
 
 export function HomePage() {
+  const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string } | null>(null);
+  
+  const handleImageClick = (src: string, alt: string) => {
+    setSelectedImage({ src, alt });
+  };
+
+  const closeModal = () => {
+    setSelectedImage(null);
+  };
 
   return (
     <div className="px-4 gap-6 flex flex-col sm:px-20 py-12 w-full">
@@ -117,7 +128,8 @@ export function HomePage() {
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="h-full w-full object-cover"
+                    className="h-full w-full object-cover cursor-pointer"
+                    onClick={() => handleImageClick(project.image, project.title)}
                   />
                   <div className="absolute top-4 right-4 bg-background/80 backdrop-blur-sm p-2 rounded-full">
                     {project.icon}
@@ -137,13 +149,15 @@ export function HomePage() {
                     <div className="flex justify-between gap-4">
                       {project.live ? (
                         <>
-                          <Button asChild variant="outline" className="w-[50%]">
-                            <a href={`/projects/${index + 1}`}>
-                              View Project
-                              <ArrowRight className="ml-2 h-4 w-4" />
-                            </a>
-                          </Button>
-                          <Button asChild variant="outline" className="w-[50%]">
+                          {project.link && (
+                            <Button asChild variant="outline" className="w-[50%]">
+                              <a href={project.link} target="_blank" rel="noopener noreferrer">
+                                View Project
+                                <ArrowRight className="ml-2 h-4 w-4" />
+                              </a>
+                            </Button>
+                          )}
+                          <Button asChild variant="outline" className={project.link ? "w-[50%]" : "w-full"}>
                             <a href={project.live} target="_blank" rel="noopener noreferrer">
                               Live
                               <ArrowRight className="ml-2 h-4 w-4" />
@@ -151,12 +165,14 @@ export function HomePage() {
                           </Button>
                         </>
                       ) : (
-                        <Button asChild variant="outline" className="w-full">
-                          <a href={`/projects/${index + 1}`}>
-                            View Project
-                            <ArrowRight className="ml-2 h-4 w-4" />
-                          </a>
-                        </Button>
+                        project.link && (
+                          <Button asChild variant="outline" className="w-full">
+                            <a href={project.link} target="_blank" rel="noopener noreferrer">
+                              View Project
+                              <ArrowRight className="ml-2 h-4 w-4" />
+                            </a>
+                          </Button>
+                        )
                       )}
                     </div>
                   </div>
@@ -229,6 +245,68 @@ export function HomePage() {
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>
+        </div>
+      </section>
+
+      {/* Achievements & Recognition Section */}
+      <section className="space-y-8">
+        <div className="section-header">
+          <h2 className="text-3xl font-bold tracking-tight">Achievements & Recognition</h2>
+          <p className="text-muted-foreground">Professional milestones and recognition earned through exceptional delivery and leadership</p>
+        </div>
+
+        <div className="achievements-list space-y-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="achievement-item bg-background/50 border border-border/50 rounded-lg p-8 hover:bg-background/80 hover:border-primary/30 transition-all duration-200"
+          >
+            <div className="achievement-header flex items-start gap-4 mb-4">
+              <div className="achievement-icon w-10 h-10 rounded-md bg-primary/10 flex items-center justify-center text-lg flex-shrink-0 mt-1">
+                🏆
+              </div>
+              <div className="achievement-content flex-1">
+                <h3 className="text-xl font-semibold mb-2">Executive Level Recognition</h3>
+                <p className="text-muted-foreground mb-4">
+                  Received exceptional appreciation from <span className="text-primary font-medium">Project Director</span> for outstanding project delivery. 
+                  Recognition escalated through management hierarchy, reaching <span className="text-primary font-medium">Ranjan, CEO of offshore company</span>, 
+                  demonstrating significant impact and quality of work delivered.
+                </p>
+                <div className="achievement-tags flex flex-wrap gap-2">
+                  <Badge variant="secondary">Client Excellence</Badge>
+                  <Badge variant="secondary">Executive Recognition</Badge>
+                  <Badge variant="secondary">Quality Delivery</Badge>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="achievement-item bg-background/50 border border-border/50 rounded-lg p-8 hover:bg-background/80 hover:border-primary/30 transition-all duration-200"
+          >
+            <div className="achievement-header flex items-start gap-4 mb-4">
+              <div className="achievement-icon w-10 h-10 rounded-md bg-primary/10 flex items-center justify-center text-lg flex-shrink-0 mt-1">
+                🎯
+              </div>
+              <div className="achievement-content flex-1">
+                <h3 className="text-xl font-semibold mb-2">Technical Leadership & Knowledge Sharing</h3>
+                <p className="text-muted-foreground mb-4">
+                  <span className="text-primary font-medium">Co-led and delivered 2 seminars</span> in company-wide Tech Talk initiative, 
+                  collaborating with management to drive technical excellence. Shared expertise across teams and contributed to 
+                  organizational knowledge growth.
+                </p>
+                <div className="achievement-tags flex flex-wrap gap-2">
+                  <Badge variant="secondary">Technical Leadership</Badge>
+                  <Badge variant="secondary">Public Speaking</Badge>
+                  <Badge variant="secondary">Knowledge Transfer</Badge>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -320,6 +398,14 @@ export function HomePage() {
           </Button>
         </div>
       </section>
+      
+      {/* Image Modal */}
+      <ImageModal
+        isOpen={!!selectedImage}
+        onClose={closeModal}
+        imageSrc={selectedImage?.src || ""}
+        imageAlt={selectedImage?.alt || ""}
+      />
     </div>
   );
 }

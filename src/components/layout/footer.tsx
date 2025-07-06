@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Github, Linkedin, Twitter, Code } from "lucide-react";
+import { Github, Linkedin, Code } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function Footer() {
@@ -51,11 +51,6 @@ export function Footer() {
               <Button variant="outline" size="icon" className="rounded-full hover:bg-primary/10 transition-colors" asChild>
                 <a href="https://www.linkedin.com/in/maheshdoiphode/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                   <Linkedin className="h-5 w-5" />
-                </a>
-              </Button>
-              <Button variant="outline" size="icon" className="rounded-full hover:bg-primary/10 transition-colors" asChild>
-                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                  <Twitter className="h-5 w-5" />
                 </a>
               </Button>
             </div>

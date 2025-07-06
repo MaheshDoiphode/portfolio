@@ -39,7 +39,7 @@ export function ProjectsPage() {
           </TabsList>
         </div>
 
-        {["all", "fullstack", "backend", "tools", "ai"].map((category) => (
+        {["all", "web", "backend", "tools", "ai"].map((category) => (
           <TabsContent key={category} value={category} className="space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {projects
@@ -92,13 +92,15 @@ export function ProjectsPage() {
                           <div className="flex justify-between gap-4">
                             {project.live ? (
                               <>
-                                <Button asChild className="w-[50%]">
-                                  <a href={project.github} target="_blank" rel="noopener noreferrer">
-                                    View Source
-                                    <ArrowRight className="ml-2 h-4 w-4" />
-                                  </a>
-                                </Button>
-                                <Button asChild className="w-[50%]">
+                                {project.github && (
+                                  <Button asChild className="w-[50%]">
+                                    <a href={project.github} target="_blank" rel="noopener noreferrer">
+                                      View Source
+                                      <ArrowRight className="ml-2 h-4 w-4" />
+                                    </a>
+                                  </Button>
+                                )}
+                                <Button asChild className={project.github ? "w-[50%]" : "w-full"}>
                                   <a href={project.live} target="_blank" rel="noopener noreferrer">
                                     Live
                                     <ArrowRight className="ml-2 h-4 w-4" />
@@ -106,12 +108,14 @@ export function ProjectsPage() {
                                 </Button>
                               </>
                             ) : (
-                              <Button asChild className="w-full">
-                                <a href={project.github} target="_blank" rel="noopener noreferrer">
-                                  View Source
-                                  <ArrowRight className="ml-2 h-4 w-4" />
-                                </a>
-                              </Button>
+                              project.github && (
+                                <Button asChild className="w-full">
+                                  <a href={project.github} target="_blank" rel="noopener noreferrer">
+                                    View Source
+                                    <ArrowRight className="ml-2 h-4 w-4" />
+                                  </a>
+                                </Button>
+                              )
                             )}
                           </div>
                         </div>

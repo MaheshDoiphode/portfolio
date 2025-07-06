@@ -1,4 +1,4 @@
-import { Globe, Server, Terminal, Database, CreditCard, Layers } from "lucide-react"
+import { Globe, Server, Terminal, Database, CreditCard, Layers, Brain, GitBranch } from "lucide-react"
 import utilitiesImage from '/src/public/utilities.jpg'
 import timelogImage from '/src/public/projects/timelog.png'
 import cinemaImage from '/src/public/projects/cinema.png'
@@ -7,6 +7,8 @@ import mobileBankingImage from '/src/public/projects/mobileBanking.png'
 import vmsImage from '/src/public/projects/vms.png'
 import hiAppImage from '/src/public/projects/hiapp.png'
 import sessionSyncImage from '/src/public/projects/sessionSync.png'
+import copilotMcpImage from '/src/public/projects/copilot-mcp.png'
+import mcpdataImage from '/src/public/projects/mcpdata.png'
 
 export interface Project {
   id: number;
@@ -36,12 +38,30 @@ export const projects: Project[] = [
     tags: ["Spring Boot", "AWS", "Reactive Programming", "Microservices"],
     category: "backend",
     icon: <Server className="h-10 w-10 text-primary" />,
-    link: "https://github.com/MaheshDoiphode",
-    github: "https://github.com/MaheshDoiphode/hi-app",
+    link: "",
+    github: "",
     live: null
   },
   {
     id: 2,
+    title: "AI-Powered Organizational Integration Tool",
+    shortDescription: "Intelligent integration system connecting Bitbucket, Confluence, Jira, and AWS services with GitHub Copilot MCP servers.",
+    description: `
+* Developed an intelligent integration system that connects **Bitbucket, Confluence, Jira, and AWS services** (EC2, EKS, ECS, CloudWatch) with GitHub Copilot MCP servers.
+* Enables GitHub Copilot to fetch and analyze organizational data from multiple platforms to provide **contextually accurate and comprehensive responses**.
+* Streamlines developer workflows by providing **AI-assisted insights** across the entire development and operations ecosystem.
+* Successfully proposed and demonstrated to **Singtel client**, receiving positive feedback and approval for enhanced development toward company-wide internal deployment.
+    `,
+    image: copilotMcpImage,
+    tags: ["All", "Tools", "AI"],
+    category: ["ai", "tools"],
+    icon: <Brain className="h-10 w-10 text-purple-600" />,
+    link: "",
+    github: "",
+    live: null
+  },
+  {
+    id: 3,
     title: "Visitor Management System",
     shortDescription: "Developed a containerized visitor management system reducing manual effort by 90%.",
     description: `
@@ -51,15 +71,15 @@ export const projects: Project[] = [
 * Integrated with **security systems** for automated access control
     `,
     image: vmsImage,
-    tags: ["Spring Boot", "Angular", "Docker", "PostgreSQL"],
-    category: ["fullstack"],
+    tags: ["All", "Web", "Backend"],
+    category: ["web", "backend"],
     icon: <Globe className="h-10 w-10 text-secondary" />,
-    link: "https://github.com/MaheshDoiphode",
-    github: "https://github.com/MaheshDoiphode/visitor-management-system",
+    link: "",
+    github: "",
     live: null
   },
   {
-    id: 3,
+    id: 4,
     title: "Time Log Tracker",
     shortDescription: "Designed UI/UX for time log management, reducing manager overhead by 70%.",
     description: `
@@ -69,15 +89,15 @@ export const projects: Project[] = [
 * Added **export functionality** for timesheet generation
     `,
     image: timelogImage,
-    tags: ["Angular", "Figma", "Tailwind CSS"],
-    category: ["fullstack"],
+    tags: ["All", "Web", "Backend"],
+    category: ["web", "backend"],
     icon: <Terminal className="h-10 w-10 text-accent" />,
-    link: "https://github.com/MaheshDoiphode",
-    github: "https://github.com/MaheshDoiphode/time-log-tracker",
+    link: "",
+    github: "",
     live: null
   },
   {
-    id: 4,
+    id: 5,
     title: "Collection of Utilities",
     shortDescription: "Built automation utilities saving 80% time on repetitive tasks.",
     description: `
@@ -94,12 +114,12 @@ export const projects: Project[] = [
     tags: ["Python", "Spring Boot", "MongoDB", "Docker"],
     category: "tools",
     icon: <Database className="h-10 w-10 text-green-600" />,
-    link: "https://github.com/MaheshDoiphode",
-    github: "https://github.com/MaheshDoiphode/python-stuff",
+    link: "",
+    github: "",
     live: null
   },
   {
-    id: 5,
+    id: 6,
     title: "Cinema Management System",
     shortDescription: "Full-stack cinema booking platform with role-based access and real-time seat management.",
     description: `
@@ -110,16 +130,16 @@ export const projects: Project[] = [
 * Created **real-time booking system** with conflict prevention
     `,
     image: cinemaImage,
-    tags: ["Angular", "Spring Boot", "PostgreSQL", "OMDB API", "JWT"],
-    category: ["fullstack"],
+    tags: ["All", "Web", "Backend"],
+    category: ["web", "backend"],
     icon: <Globe className="h-10 w-10 text-primary" />,
-    link: "https://github.com/MaheshDoiphode",
-    github: "https://github.com/MaheshDoiphode/cinema-angular",
+    link: "https://github.com/MaheshDoiphode/cinema-java",
+    github: "https://github.com/MaheshDoiphode/cinema-java",
     live: null,
     featured: true
   },
   {
-    id: 6,
+    id: 7,
     title: "AI-Powered Code Analysis Tools",
     shortDescription: "Built AI-powered utilities for automated code review and optimization using Google's Gemini API.",
     description: `
@@ -137,12 +157,12 @@ export const projects: Project[] = [
     tags: ["Python", "Google Gemini API", "Flask", "VS Code Extension"],
     category: ["ai", "tools"],
     icon: <Database className="h-10 w-10 text-green-600" />,
-    link: "https://github.com/MaheshDoiphode",
+    link: "https://github.com/MaheshDoiphode/ai-stuff",
     github: "https://github.com/MaheshDoiphode/ai-stuff",
     live: null
   },
   {
-    id: 7,
+    id: 8,
     title: "Mobile Banking Application",
     shortDescription: "Full-stack secure banking system with real-time transactions, analytics and chatbot support",
     description: `
@@ -160,15 +180,15 @@ export const projects: Project[] = [
 * End-to-end encryption & role-based security
   `,
     image: mobileBankingImage,
-    tags: ["Angular", "Spring Boot", "PostgreSQL", "MongoDB", "JWT", "Material UI"],
-    category: ["fullstack"],
+    tags: ["All", "Web", "Backend"],
+    category: ["web", "backend"],
     icon: <CreditCard className="h-10 w-10 text-blue-600" />,
     link: "https://github.com/MaheshDoiphode/mobile-banking",
     github: "https://github.com/MaheshDoiphode/mobile-banking",
     live: null
   },
   {
-    id: 8,
+    id: 9,
     title: "SessionSync",
     shortDescription: "Browser extension for managing sessions, tab organization, and profile switching with optimized storage.",
     description: `
@@ -182,8 +202,27 @@ export const projects: Project[] = [
     tags: ["JavaScript", "Chrome Extension API", "LZMA Compression", "Browser Storage"],
     category: ["tools"],
     icon: <Layers className="h-10 w-10 text-blue-500" />,
-    link: "https://github.com/MaheshDoiphode/SessionSync",
-    github: "https://github.com/MaheshDoiphode/SessionSync",
+    link: "https://github.com/MaheshDoiphode/session-sync",
+    github: "https://github.com/MaheshDoiphode/session-sync",
+    live: null
+  },
+  {
+    id: 10,
+    title: "AI-Powered Documentation & Code Indexing System",
+    shortDescription: "High-performance documentation and code indexing system enabling AI assistants to search across multiple repositories.",
+    description: `
+* Developed a high-performance documentation and code indexing system enabling AI assistants to search across multiple repositories and workspaces through **standardized MCP protocol integration**.
+* Built parallel processing engine with intelligent content extraction supporting **15+ file types** including Markdown, Python, JavaScript, and configuration files, achieving **10-30x faster indexing** than traditional methods.
+* Implemented sophisticated search algorithms with relevance ranking, fuzzy matching, and cross-workspace discovery, enabling **sub-100ms query response times** across enterprise-scale codebases (5000+ files).
+* Created centralized registry system managing multiple workspaces with automatic incremental updates, backup mechanisms, and **optimized vector embeddings** for semantic search capabilities.
+* Integrated seamlessly with **GitHub Copilot, Claude Desktop**, and other AI development tools through MCP server architecture, enhancing developer productivity by providing contextually accurate code and documentation insights.
+    `,
+    image: mcpdataImage,
+    tags: ["All", "Web", "AI"],
+    category: ["ai", "tools"],
+    icon: <GitBranch className="h-10 w-10 text-indigo-600" />,
+    link: "https://github.com/MaheshDoiphode/mcpdata",
+    github: "https://github.com/MaheshDoiphode/mcpdata",
     live: null
   }
 ]
