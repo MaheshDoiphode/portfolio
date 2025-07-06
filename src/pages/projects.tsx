@@ -39,7 +39,7 @@ export function ProjectsPage() {
           </TabsList>
         </div>
 
-        {["all", "fullstack", "backend", "tools", "ai"].map((category) => (
+        {["all", "web", "backend", "tools", "ai"].map((category) => (
           <TabsContent key={category} value={category} className="space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {projects
